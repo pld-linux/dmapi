@@ -1,7 +1,7 @@
 Summary:	DMAPI library
 Summary(pl):	Biblioteka DMAPI
 Name:		dmapi
-Version:	0.2.2
+Version:	2.0.0
 Release:	1
 License:	GPL
 Group:		Development/Libraries
