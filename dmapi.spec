@@ -99,8 +99,8 @@ ln -sf %{_libdir}/$(cd $RPM_BUILD_ROOT%{_libdir} ; echo libdm.so.*.*.*) \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
