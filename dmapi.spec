@@ -1,8 +1,8 @@
 Summary:	DMAPI library
 Summary(pl):	Biblioteka DMAPI
 Name:		dmapi
-Version:	2.0.2
-Release:	2
+Version:	2.0.5
+Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	ftp://linux-xfs.sgi.com/projects/xfs/download/cmd_tars/%{name}-%{version}.src.tar.gz
@@ -10,6 +10,9 @@ URL:		http://oss.sgi.com/projects/xfs/
 BuildRequires:	autoconf
 BuildRequires:	xfsprogs-devel >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_libdir		/lib
+%define		_libexecdir	/usr/lib
 
 %description
 DMAPI, or XDSM, is an implementation of the X/Open document: Systems
@@ -78,8 +81,8 @@ export DIST_ROOT DIST_INSTALL DIST_INSTALL_DEV
 %{__make} install DIST_MANIFEST="$DIST_INSTALL"
 %{__make} install-dev DIST_MANIFEST="$DIST_INSTALL_DEV"
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/libdm.so
-ln -sf /lib/libdm.so.0.0.2 $RPM_BUILD_ROOT%{_libdir}/libdm.so
+rm -f $RPM_BUILD_ROOT%{_libexecdir}/libdm.so
+ln -sf %{_libdir}/libdm.so.0.0.4 $RPM_BUILD_ROOT%{_libexecdir}/libdm.so
 
 gzip -9nf doc/CHANGES
 
@@ -92,15 +95,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/*.gz
-%attr(755,root,root) /lib/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.la
-%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libexecdir}/lib*.la
+%attr(755,root,root) %{_libexecdir}/lib*.so
 %{_includedir}/xfs/*
 %{_mandir}/man3/*
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libexecdir}/lib*.a
