@@ -1,6 +1,6 @@
 Summary:	DMAPI library
 Name:		dmapi
-Version:	0.1.1
+Version:	0.2.2
 Release:	1
 License:	GPL
 Group:		Development/Libraries
@@ -70,11 +70,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/*.gz
-%attr(755,root,root) %{_libdir}/lib*.so.*
+%attr(755,root,root) /lib/lib*.so.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/xfs
 %{_mandir}/man3/*
 
