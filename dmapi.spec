@@ -61,7 +61,7 @@ Statyczna wersja biblioteki DMAPI.
 
 %build
 DEBUG="%{?debug:-DDEBUG}%{!?debug:-DNDEBUG}"; export DEBUG
-autoconf
+%{__autoconf}
 %configure \
 	OPTIMIZER="%{rpmcflags}"
 
