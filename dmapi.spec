@@ -1,14 +1,13 @@
 Summary:	DMAPI library
 Summary(pl):	Biblioteka DMAPI
 Name:		dmapi
-Version:	2.0.0
+Version:	0.2.2
 Release:	1
 License:	GPL
 Group:		Development/Libraries
 Source0:	ftp://linux-xfs.sgi.com/projects/xfs/download/cmd_tars/%{name}-%{version}.src.tar.gz
 URL:		http://oss.sgi.com/projects/xfs/
 BuildRequires:	autoconf
-BuildRequires:	xfsprogs-devel >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
