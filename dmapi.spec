@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL/GPL
 Group:		Libraries
 Source0:	ftp://linux-xfs.sgi.com/projects/xfs/download/cmd_tars/%{name}-%{version}.src.tar.gz
+# Source0-md5:	1f84efedf8ef30d6c440defb7b550e77
 URL:		http://oss.sgi.com/projects/xfs/
 BuildRequires:	autoconf
 BuildRequires:	xfsprogs-devel >= 2.0.0
