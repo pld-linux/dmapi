@@ -8,6 +8,7 @@ Group:		Development/Libraries
 Source0:	ftp://linux-xfs.sgi.com/projects/xfs/download/cmd_tars/%{name}-%{version}.src.tar.gz
 URL:		http://oss.sgi.com/projects/xfs/
 BuildRequires:	autoconf
+BuildRequires:	xfsprogs-devel >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
