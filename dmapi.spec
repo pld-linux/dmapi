@@ -84,8 +84,6 @@ export DIST_ROOT DIST_INSTALL DIST_INSTALL_DEV
 rm -f $RPM_BUILD_ROOT%{_libexecdir}/libdm.so
 ln -sf %{_libdir}/libdm.so.0.0.4 $RPM_BUILD_ROOT%{_libexecdir}/libdm.so
 
-gzip -9nf doc/CHANGES
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -94,7 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*.gz
+%doc doc/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
