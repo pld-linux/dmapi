@@ -5,7 +5,7 @@ Version:	2.1.0
 Release:	1
 License:	LGPL/GPL
 Group:		Libraries
-Source0:	ftp://linux-xfs.sgi.com/projects/xfs/download/Release-1.3/cmd_tars/%{name}-%{version}.src.tar.gz
+Source0:	ftp://linux-xfs.sgi.com/projects/xfs/download/cmd_tars/%{name}-%{version}.src.tar.gz
 # Source0-md5:	6046d25f44d94fe7141249ae88788f14
 Patch0:		%{name}-miscfix.patch
 URL:		http://oss.sgi.com/projects/xfs/
