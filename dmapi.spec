@@ -74,13 +74,15 @@ DEBUG="%{?debug:-DDEBUG}%{!?debug:-DNDEBUG}"; export DEBUG
 %install
 rm -rf $RPM_BUILD_ROOT
 
-DIST_ROOT="$RPM_BUILD_ROOT"
+DIST_ROOT=$RPM_BUILD_ROOT
 DIST_INSTALL=`pwd`/install.manifest
 DIST_INSTALL_DEV=`pwd`/install-dev.manifest
 export DIST_ROOT DIST_INSTALL DIST_INSTALL_DEV
 
-%{__make} install DIST_MANIFEST="$DIST_INSTALL"
-%{__make} install-dev DIST_MANIFEST="$DIST_INSTALL_DEV"
+%{__make} install \
+	DIST_MANIFEST=$DIST_INSTALL
+%{__make} install-dev \
+	DIST_MANIFEST=$DIST_INSTALL_DEV
 
 rm -f $RPM_BUILD_ROOT%{_libexecdir}/libdm.so
 ln -sf %{_libdir}/libdm.so.0.0.4 $RPM_BUILD_ROOT%{_libexecdir}/libdm.so
