@@ -2,7 +2,7 @@ Summary:	DMAPI library
 Summary(pl):	Biblioteka DMAPI
 Name:		dmapi
 Version:	2.0.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		Libraries
 Source0:	ftp://linux-xfs.sgi.com/projects/xfs/download/cmd_tars/%{name}-%{version}.src.tar.gz
@@ -62,7 +62,8 @@ Statyczna wersja biblioteki DMAPI.
 %build
 DEBUG="%{?debug:-DDEBUG}%{!?debug:-DNDEBUG}"; export DEBUG
 autoconf
-%configure
+%configure \
+	OPTIMIZER="%{rpmcflags}"
 
 %{__make}
 
