@@ -96,7 +96,7 @@ export DIST_ROOT DIST_INSTALL DIST_INSTALL_DEV
 %{__make} install-dev DIST_MANIFEST="$DIST_INSTALL_DEV"
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/libdm.so
-ln -sf /lib/libdm.so.*.*.* $RPM_BUILD_ROOT%{_libdir}/libdm.so
+ln -sf /lib/libdm.so.0.0.1 $RPM_BUILD_ROOT%{_libdir}/libdm.so
 
 gzip -9nf doc/CHANGES
 
@@ -106,7 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/*.gz
-%attr(755,root,root) /lib/lib*.so.*
+%attr(755,root,root) /lib/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
