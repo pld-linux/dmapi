@@ -1,46 +1,79 @@
 Summary:	DMAPI library
+Summary(pl):	Biblioteka DMAPI
 Name:		dmapi
 Version:	0.2.2
 Release:	1
 License:	GPL
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Source0:	ftp://linux-xfs.sgi.com/projects/xfs/download/cmd_tars/%{name}-%{version}.src.tar.gz
 URL:		http://oss.sgi.com/projects/xfs/
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 DMAPI, or XDSM, is an implementation of the X/Open document: Systems
 Management: Data Storage Management (XDSM) API dated February 1997.
-This interface is made available for the XFS filesystem by means
-of the libdm library.
-                                                                                
-See the XDSM manual at http://www.opengroup.org/onlinepubs/9657099/toc.htm
-for a description of the functions offered by libdm library.
+This interface is made available for the XFS filesystem by means of
+the libdm library.
+
+See the XDSM manual at
+http://www.opengroup.org/onlinepubs/9657099/toc.htm for a description
+of the functions offered by libdm library.
+
+%description -l pl
+DMAPI (albo XDSM) to implementacja dokumentu X/Open "Systems
+Management: Data Storage Management (XDSM) API) z lutego 1997. Ten
+interfejs jest dostЙpny dla systemu plikСw XFS poprzez bibliotekЙ
+libdm.
+
+Opis funkcji oferowanych przez bibliotekЙ libdm jest w podrЙczniku:
+http://www.opengroup.org/onlinepubs/9657099/toc.htm
 
 %package devel
 Summary:	Header files for DMAPI library
+Summary(pl):	Pliki nagЁСwkowe biblioteki DMAPI
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
 Header files required to develop software which uses DMAPI.
 
+%description devel -l pl
+Pliki nagЁСwkowe potrzebne do tworzenia oprogramowania u©ywaj╠cego
+DMAPI.
+
 %package static
 Summary:	Static DMAPI library
+Summary(pl):	Statyczna biblioteka DMAPI
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
 Static version of DMAPI library.
+
+%description static -l pl
+Statyczna wersja biblioteki DMAPI.
 
 %prep
 %setup  -q
