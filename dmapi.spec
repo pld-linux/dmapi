@@ -2,7 +2,7 @@ Summary:	DMAPI library
 Summary(pl):	Biblioteka DMAPI
 Name:		dmapi
 Version:	0.3.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Libraries
 Source0:	ftp://linux-xfs.sgi.com/projects/xfs/download/cmd_tars/%{name}-%{version}.src.tar.gz
@@ -76,7 +76,7 @@ export DIST_ROOT DIST_INSTALL DIST_INSTALL_DEV
 %{__make} install-dev DIST_MANIFEST="$DIST_INSTALL_DEV"
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/libdm.so
-ln -sf /lib/libdm.so.0.0.1 $RPM_BUILD_ROOT%{_libdir}/libdm.so
+ln -sf /lib/libdm.so.0.0.2 $RPM_BUILD_ROOT%{_libdir}/libdm.so
 
 gzip -9nf doc/CHANGES
 
