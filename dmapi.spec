@@ -62,6 +62,9 @@ export DIST_ROOT DIST_INSTALL DIST_INSTALL_DEV
 %{__make} install DIST_MANIFEST="$DIST_INSTALL"
 %{__make} install-dev DIST_MANIFEST="$DIST_INSTALL_DEV"
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/libdm.so
+ln -sf /lib/libdm.so.*.*.* $RPM_BUILD_ROOT%{_libdir}/libdm.so
+
 gzip -9nf doc/CHANGES
 
 %clean
