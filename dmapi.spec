@@ -14,8 +14,8 @@ BuildRequires:	automake
 BuildRequires:	xfsprogs-devel >= 2.6.13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_libdir		/lib
-%define		_libexecdir	/usr/lib
+%define		_libdir		/%{_lib}
+%define		_libexecdir	/usr/%{_lib}
 
 %description
 DMAPI, or XDSM, is an implementation of the X/Open document: Systems
@@ -40,7 +40,7 @@ http://www.opengroup.org/onlinepubs/9657099/toc.htm
 Summary:	Header files for DMAPI library
 Summary(pl):	Pliki nag³ówkowe biblioteki DMAPI
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	xfsprogs-devel
 
 %description devel
@@ -54,7 +54,7 @@ DMAPI.
 Summary:	Static DMAPI library
 Summary(pl):	Statyczna biblioteka DMAPI
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of DMAPI library.
@@ -64,7 +64,7 @@ Statyczna wersja biblioteki DMAPI.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 %build
 rm -f aclocal.m4
