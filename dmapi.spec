@@ -7,8 +7,10 @@ License:	LGPL/GPL
 Group:		Libraries
 Source0:	ftp://linux-xfs.sgi.com/projects/xfs/download/cmd_tars/%{name}-%{version}.src.tar.gz
 # Source0-md5:	a8e2aef7a50a161b92ee30a300f84b4e
+Patch0:		%{name}-miscfix.patch
 URL:		http://oss.sgi.com/projects/xfs/
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	xfsprogs-devel >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -61,12 +63,15 @@ Static version of DMAPI library.
 Statyczna wersja biblioteki DMAPI.
 
 %prep
-%setup  -q
+%setup -q
+%patch -p1
 
 %build
-DEBUG="%{?debug:-DDEBUG}%{!?debug:-DNDEBUG}"; export DEBUG
+rm -f aclocal.m4
+%{__aclocal} -I m4
 %{__autoconf}
 %configure \
+	DEBUG="%{?debug:-DDEBUG}%{!?debug:-DNDEBUG}" \
 	OPTIMIZER="%{rpmcflags}"
 
 %{__make}
@@ -85,7 +90,8 @@ export DIST_ROOT DIST_INSTALL DIST_INSTALL_DEV
 	DIST_MANIFEST=$DIST_INSTALL_DEV
 
 rm -f $RPM_BUILD_ROOT%{_libexecdir}/libdm.so
-ln -sf %{_libdir}/libdm.so.0.0.4 $RPM_BUILD_ROOT%{_libexecdir}/libdm.so
+ln -sf %{_libdir}/$(cd $RPM_BUILD_ROOT%{_libdir} ; echo libdm.so.*.*.*) \
+	$RPM_BUILD_ROOT%{_libexecdir}/libdm.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -101,8 +107,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_libexecdir}/lib*.la
 %attr(755,root,root) %{_libexecdir}/lib*.so
+%{_libexecdir}/lib*.la
 %{_includedir}/xfs/*
 %{_mandir}/man3/*
 
