@@ -3,7 +3,7 @@ Summary(pl):	Biblioteka DMAPI
 Name:		dmapi
 Version:	2.0.5
 Release:	1
-License:	GPL
+License:	LGPL/GPL
 Group:		Libraries
 Source0:	ftp://linux-xfs.sgi.com/projects/xfs/download/cmd_tars/%{name}-%{version}.src.tar.gz
 URL:		http://oss.sgi.com/projects/xfs/
@@ -92,7 +92,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*
+# COPYING specifies which parts are on LGPL/GPL
+%doc doc/{CHANGES,COPYING}
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
