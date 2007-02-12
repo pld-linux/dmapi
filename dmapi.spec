@@ -1,5 +1,5 @@
 Summary:	DMAPI library
-Summary(pl):	Biblioteka DMAPI
+Summary(pl.UTF-8):   Biblioteka DMAPI
 Name:		dmapi
 Version:	2.2.5
 Release:	1
@@ -28,18 +28,18 @@ See the XDSM manual at
 http://www.opengroup.org/onlinepubs/9657099/toc.htm for a description
 of the functions offered by libdm library.
 
-%description -l pl
+%description -l pl.UTF-8
 DMAPI (albo XDSM) to implementacja dokumentu X/Open "Systems
 Management: Data Storage Management (XDSM) API) z lutego 1997. Ten
-interfejs jest dostêpny dla systemu plików XFS poprzez bibliotekê
+interfejs jest dostÄ™pny dla systemu plikÃ³w XFS poprzez bibliotekÄ™
 libdm.
 
-Opis funkcji oferowanych przez bibliotekê libdm jest w podrêczniku:
+Opis funkcji oferowanych przez bibliotekÄ™ libdm jest w podrÄ™czniku:
 http://www.opengroup.org/onlinepubs/9657099/toc.htm
 
 %package devel
 Summary:	Header files for DMAPI library
-Summary(pl):	Pliki nag³ówkowe biblioteki DMAPI
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki DMAPI
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xfsprogs-devel
@@ -47,20 +47,20 @@ Requires:	xfsprogs-devel
 %description devel
 Header files required to develop software which uses DMAPI.
 
-%description devel -l pl
-Pliki nag³ówkowe potrzebne do tworzenia oprogramowania u¿ywaj±cego
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe potrzebne do tworzenia oprogramowania uÅ¼ywajÄ…cego
 DMAPI.
 
 %package static
 Summary:	Static DMAPI library
-Summary(pl):	Statyczna biblioteka DMAPI
+Summary(pl.UTF-8):   Statyczna biblioteka DMAPI
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of DMAPI library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna wersja biblioteki DMAPI.
 
 %prep
