@@ -1,5 +1,5 @@
 Summary:	DMAPI library
-Summary(pl.UTF-8):   Biblioteka DMAPI
+Summary(pl.UTF-8):	Biblioteka DMAPI
 Name:		dmapi
 Version:	2.2.5
 Release:	1
@@ -39,7 +39,7 @@ http://www.opengroup.org/onlinepubs/9657099/toc.htm
 
 %package devel
 Summary:	Header files for DMAPI library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki DMAPI
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki DMAPI
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xfsprogs-devel
@@ -53,7 +53,7 @@ DMAPI.
 
 %package static
 Summary:	Static DMAPI library
-Summary(pl.UTF-8):   Statyczna biblioteka DMAPI
+Summary(pl.UTF-8):	Statyczna biblioteka DMAPI
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
