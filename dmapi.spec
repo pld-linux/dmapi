@@ -5,7 +5,7 @@ Version:	2.2.8
 Release:	1
 License:	LGPL/GPL
 Group:		Libraries
-Source0:	ftp://linux-xfs.sgi.com/projects/xfs/download/cmd_tars/%{name}_%{version}-1.tar.gz
+Source0:	ftp://linux-xfs.sgi.com/projects/xfs/cmd_tars/%{name}_%{version}-1.tar.gz
 # Source0-md5:	29c5ba7d9a3524fd247be00c3b43e8d9
 Patch0:		%{name}-miscfix.patch
 URL:		http://oss.sgi.com/projects/xfs/
