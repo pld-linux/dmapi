@@ -43,7 +43,7 @@ Summary:	Header files for DMAPI library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki DMAPI
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	xfsprogs-devel
+Requires:	xfsprogs-devel >= 2.6.13
 
 %description devel
 Header files required to develop software which uses DMAPI.
@@ -69,7 +69,7 @@ Statyczna wersja biblioteki DMAPI.
 %patch0 -p1
 
 %build
-rm -f aclocal.m4
+%{__rm} aclocal.m4
 %{__aclocal} -I m4
 %{__autoconf}
 %configure \
@@ -91,11 +91,13 @@ export DIST_ROOT DIST_INSTALL DIST_INSTALL_DEV
 %{__make} install-dev \
 	DIST_MANIFEST=$DIST_INSTALL_DEV
 
-rm -f $RPM_BUILD_ROOT%{_libexecdir}/libdm.so
-ln -sf %{_libdir}/$(cd $RPM_BUILD_ROOT%{_libdir} ; echo libdm.so.*.*.*) \
+%{__rm} $RPM_BUILD_ROOT%{_libexecdir}/libdm.so
+ln -sf %{_libdir}/$(basename $RPM_BUILD_ROOT%{_libdir}/libdm.so.*.*.*) \
 	$RPM_BUILD_ROOT%{_libexecdir}/libdm.so
 %{__sed} -i "s|libdir='%{_libdir}'|libdir='%{_libexecdir}'|" \
 	$RPM_BUILD_ROOT%{_libexecdir}/libdm.la
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libdm.{so,la,a}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -106,16 +108,17 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 # COPYING specifies which parts are on LGPL/GPL
-%doc doc/{CHANGES,COPYING}
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%doc README doc/{CHANGES,COPYING}
+%attr(755,root,root) %{_libdir}/libdm.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libdm.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libexecdir}/lib*.so
-%{_libexecdir}/lib*.la
-%{_includedir}/xfs/*
-%{_mandir}/man3/*
+%attr(755,root,root) %{_libexecdir}/libdm.so
+%{_libexecdir}/libdm.la
+%{_includedir}/xfs/dmapi.h
+%{_mandir}/man3/dmapi.3*
 
 %files static
 %defattr(644,root,root,755)
-%{_libexecdir}/lib*.a
+%{_libexecdir}/libdm.a
