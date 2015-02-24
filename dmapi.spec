@@ -2,7 +2,7 @@ Summary:	DMAPI library
 Summary(pl.UTF-8):	Biblioteka DMAPI
 Name:		dmapi
 Version:	2.2.12
-Release:	1
+Release:	2
 # doc/COPYING mentions LGPL for files in "dmapi", but all sources are explicitly marked GPL
 License:	GPL v2
 Group:		Libraries
