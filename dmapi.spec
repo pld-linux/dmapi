@@ -66,7 +66,7 @@ Statyczna wersja biblioteki DMAPI.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__rm} aclocal.m4
